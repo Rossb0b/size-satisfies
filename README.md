@@ -35,7 +35,10 @@ The first argument of the `sizeSatisfies` method is the pattern with the operato
 
 ## API
 
-###
+### sizeSatisfies(pattern: string, size: number | string): boolean
+When the size is a string we convert it to a bytes number. When the argument is a number we consider the value as bytes.
+
+Invalid pattern will always return **false**.
 
 ## License
 MIT
