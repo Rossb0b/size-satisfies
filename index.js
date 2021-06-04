@@ -1,15 +1,13 @@
-"use strict";
-
 // Require Third-party Dependencies
-const bytes = require("bytes");
+import bytes from "bytes";
 
 // CONSTANTS
 const kOperators = {
-    ">=": (lh, rh) => lh >= rh,
-    "<=": (lh, rh) => lh <= rh,
-    ">": (lh, rh) => lh > rh,
-    "<": (lh, rh) => lh < rh,
-    "=": (lh, rh) => lh === rh
+  ">=": (lh, rh) => lh >= rh,
+  "<=": (lh, rh) => lh <= rh,
+  ">": (lh, rh) => lh > rh,
+  "<": (lh, rh) => lh < rh,
+  "=": (lh, rh) => lh === rh
 };
 
 /**
@@ -19,14 +17,14 @@ const kOperators = {
  * @returns {boolean}
  */
 function sizeSatisfies(pattern, size) {
-    const localSize = typeof size === "number" ? size : bytes(size);
-    const regexResult = /^(?<operator>[><=]{1,2})\s*(?<patternSize>.*)/g.exec(pattern);
-    if (regexResult === null) {
-        return false;
-    }
-    const { operator, patternSize } = regexResult.groups;
+  const localSize = typeof size === "number" ? size : bytes(size);
+  const regexResult = /^(?<operator>[><=]{1,2})\s*(?<patternSize>.*)/g.exec(pattern);
+  if (regexResult === null) {
+    return false;
+  }
+  const { operator, patternSize } = regexResult.groups;
 
-    return kOperators[operator](localSize, bytes(patternSize));
+  return kOperators[operator](localSize, bytes(patternSize));
 }
 
-module.exports = sizeSatisfies;
+export default sizeSatisfies;

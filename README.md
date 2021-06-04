@@ -1,9 +1,9 @@
-# Size-satisfies
-![version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/fraxken/size-satisfies/master/package.json&query=$.version&label=Version)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/fraxken/size-satisfies/commit-activity)
+# `size-satisfies`
+![version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/NodeSecure/size-satisfies/master/package.json&query=$.version&label=Version)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/NodeSecure/size-satisfies/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
-![dep](https://img.shields.io/david/fraxken/size-satisfies)
-![size](https://img.shields.io/github/languages/code-size/fraxken/size-satisfies)
+![dep](https://img.shields.io/david/NodeSecure/size-satisfies)
+![size](https://img.shields.io/github/languages/code-size/NodeSecure/size-satisfies)
 
 Same as SemVer.satisfies but for file size!
 
@@ -15,16 +15,18 @@ Same as SemVer.satisfies but for file size!
 This package is available in the Node Package Repository and can be easily installed with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or [yarn](https://yarnpkg.com).
 
 ```bash
-$ npm i size-satisfies
+$ npm i @nodesecure/size-satisfies
 # or
-$ yarn add size-satisfies
+$ yarn add @nodesecure/size-satisfies
 ```
 
 ## Usage example
 
 ```js
-const { strictEqual } = require("assert").strict;
-const sizeSatisfies = require("size-satisfies");
+import { strict } from "assert";
+import sizeSatisfies from "size-satisfies";
+
+const { strictEqual } = strict;
 
 strictEqual(sizeSatisfies(">= 45KB", "20MB"), true);
 strictEqual(sizeSatisfies("= 1MB", "1MB"), true);
